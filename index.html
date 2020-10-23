@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:type" content="website">
+    <meta name="image" property="og:image" content="resources/img/favicon.png">
+    <meta name="description" property="og:description" content="From a spreadsheet of people, find each person a new match every month for the 'Fall in Love with a Sandboxer' program">
+    <meta name="author" content="Seyhan Van Khan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="resources/img/favicon.png">
+    <link rel="stylesheet" href="resources/css/main.css">
+    <title>Create Pairs for 'Fall in Love with a Sandboxer'</title>
+  </head>
+
+  <body>
+    <button onclick="
+      pairsTable = document.getElementById('pairsTable');
+      mailTable = document.getElementById('mailMergeTable');
+      if (mailTable.style.display === 'block') {
+        mailTable.style.display = 'none';
+        pairsTable.style.display = 'block';
+        document.getElementById('switcher').innerHTML = 'See Mail Merge tab';
+      } else {
+        mailTable.style.display = 'block';
+        pairsTable.style.display = 'none';
+        document.getElementById('switcher').innerHTML = 'See Pairs tab';
+      }" id="switcher" class="unselectable" type="button">See Pairs tab</button>
+    <img id="loadingImage" class="unselectable" src="resources/img/loading.gif">
+    <div id="errorBox" class="unselectable"></div>
+
+
+    <table style="display:block" id="mailMergeTable"></table>
+    <table style="display:none" id="pairsTable"></table>
+
+    <script defer src="constants.js"></script>
+    <script defer src="calculatePairs.js"></script>
+  </body>
+</html>

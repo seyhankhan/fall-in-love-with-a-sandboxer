@@ -1,0 +1,24 @@
+body {
+  font-family:Arial;
+}
+
+h2 {
+  font-weight:lighter;
+}
+
+#loadingImage {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+#errorBox {
+  margin:0 auto;
+  text-align: center;
+}
+
+.unselectable {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
