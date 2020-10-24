@@ -25,12 +25,11 @@
         mailTable.style.display = 'block';
         pairsTable.style.display = 'none';
         document.getElementById('switcher').innerHTML = 'See Pairs tab';
-      }" id="switcher" class="unselectable" type="button">See Pairs tab</button>
+      }" id="switcher" style="display:none" class="unselectable" type="button">See Pairs tab</button>
+    <table style="display:block" id="mailMergeTable"></table>
     <img id="loadingImage" class="unselectable" src="resources/img/loading.gif">
     <div id="errorBox" class="unselectable"></div>
 
-
-    <table style="display:block" id="mailMergeTable"></table>
     <table style="display:none" id="pairsTable"></table>
 
     <script defer src="constants.js"></script>

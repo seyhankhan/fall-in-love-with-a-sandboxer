@@ -152,6 +152,11 @@ fetch(SPREADSHEET_URL)
     s1 = Sandboxers[shuffledIDs[i]];
     s2 = Sandboxers[shuffledIDs[i+1]];
 
+    if (s1[COLUMN['Number']][0] === "'")
+      s1[COLUMN['Number']] = "'" + s1[COLUMN['Number']];
+    if (s2[COLUMN['Number']][0] === "'")
+      s2[COLUMN['Number']] = "'" + s2[COLUMN['Number']];
+
     // Emails  Name 1  Location 1  Number 1  Scheduling Link 1 Name 2  Location 2  Number 2  Scheduling Link 2
     table.push([
       s1[COLUMN['Email']] + ", " + s2[COLUMN['Email']],
@@ -173,7 +178,7 @@ fetch(SPREADSHEET_URL)
   headers = ['Emails','Name 1','Location 1','Number 1','Scheduling Link 1','Name 2','Location 2','Number 2','Scheduling Link 2'];
   // add headers to html table
   mailMergeTableHTML = `
-  <thead>
+  <thead class="unselectable">
     <tr>
       <td>` + headers.join("</td><td>") + `</td>
     </tr>
@@ -219,4 +224,5 @@ fetch(SPREADSHEET_URL)
   document.getElementById('errorBox').style = 'display:none';
   // put the table html onto the website
   document.getElementById('mailMergeTable').innerHTML = mailMergeTableHTML;
+  document.getElementById('switcher').style = 'display:block';
 });
