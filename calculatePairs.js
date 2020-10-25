@@ -9,12 +9,12 @@
 // index of each column in Sandboxers array
 const COLUMN = {
   "Name":           0,
-  "Number":         1,
-  "Email":          2,
+  "Email":          1,
+  "Number":         2,
   "Location":       3,
   "Link":           4,
   "Comments":       5,
-  "Opted In":       6,
+  "Opted Out":      6,
   "Remove if odd":  7,
   "Pairs":          8
 };
@@ -62,11 +62,11 @@ fetch(SPREADSHEET_URL)
   // remove the first row (the headers)
   Sandboxers = data['values'].slice(1);
 
-  // iterate through each sandboxer, saving each sandboxer's ID if they have opted in (participating in this month)
+  // iterate through each sandboxer, saving each sandboxer's ID if they have opted in (opted out column is BLANK)
   // array of ints
   participatingIDs = [];
   for (id = 0; id < Sandboxers.length; id++) {
-    if (Sandboxers[id][COLUMN["Opted In"]] === '1') {
+    if (Sandboxers[id][COLUMN["Opted Out"]] === "") {
       participatingIDs.push(id)
     }
   }
