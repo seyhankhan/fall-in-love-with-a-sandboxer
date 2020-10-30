@@ -10,27 +10,23 @@
 
     <link rel="shortcut icon" href="resources/img/favicon.png">
     <link rel="stylesheet" href="resources/css/main.css">
-    <title>Create Pairs for 'Fall in Love with a Sandboxer'</title>
+    <title>Pairs Generator | Fall in Love with a Sandboxer</title>
   </head>
 
   <body>
-    <button onclick="
-      pairsTable = document.getElementById('pairsTable');
-      mailTable = document.getElementById('mailMergeTable');
-      if (mailTable.style.display === 'block') {
-        mailTable.style.display = 'none';
-        pairsTable.style.display = 'block';
-        document.getElementById('switcher').innerHTML = 'See Mail Merge tab';
-      } else {
-        mailTable.style.display = 'block';
-        pairsTable.style.display = 'none';
-        document.getElementById('switcher').innerHTML = 'See Pairs tab';
-      }" id="switcher" style="display:none" class="unselectable" type="button">See Pairs tab</button>
-    <table style="display:block" id="mailMergeTable"></table>
-    <img id="loadingImage" class="unselectable" src="resources/img/loading.gif">
-    <div id="errorBox" class="unselectable"></div>
+    <h2 id="oddRemoved" class="unselectable"></h2>
 
-    <table style="display:none" id="pairsTable"></table>
+    <div class="tab unselectable">
+      <button id="button-mailmerge" class="active">Mail Merge</button>
+      <button id="button-pairs">Pairs</button>
+    </div>
+
+    <table id="table-mailmerge"></table>
+    <table id="table-pairs"></table>
+
+    <div id="loadingScreen">
+      <img id="loadingImage" class="unselectable" src="resources/img/loading.gif">
+    </div>
 
     <script defer src="constants.js"></script>
     <script defer src="calculatePairs.js"></script>
