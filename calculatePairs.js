@@ -61,18 +61,18 @@ function lowerCase(str) {
 /* -------------------------------- BUTTONS --------------------------------- */
 
 
-document.getElementById("button-mailmerge").onclick = () => {
-  document.getElementById('table-mailmerge').style.display = 'block';
-  document.getElementById('table-pairs').style.display = 'none';
-  document.getElementById('button-mailmerge').className = 'active'
-  document.getElementById('button-pairs').className = '';
+document.getElementById("button-mailMerge").onclick = () => {
+  document.getElementById('table-mailMerge').style.display = 'block';
+  document.getElementById('table-pairsIDs').style.display = 'none';
+  document.getElementById('button-mailMerge').className = 'active'
+  document.getElementById('button-pairsIDs').className = '';
 };
 
 document.getElementById("button-pairs").onclick = () => {
-  document.getElementById('table-mailmerge').style.display = 'none';
-  document.getElementById('table-pairs').style.display = 'block';
-  document.getElementById('button-mailmerge').className = '';
-  document.getElementById('button-pairs').className = 'active';
+  document.getElementById('table-mailMerge').style.display = 'none';
+  document.getElementById('table-pairsIDs').style.display = 'block';
+  document.getElementById('button-mailMerge').className = '';
+  document.getElementById('button-pairsIDs').className = 'active';
 };
 
 
@@ -298,7 +298,7 @@ fetch(PARTICIPANTS_SPREADSHEET_URL)
       pairIDsTable[shuffledIDs[i+1]] = `${shuffledIDs[i]}<br>`;
     }
 
-    document.getElementById('table-pairs').innerHTML = `
+    document.getElementById('table-pairsIDs').innerHTML = `
       Pairs
       <tbody>
         <tr>
@@ -313,6 +313,6 @@ fetch(PARTICIPANTS_SPREADSHEET_URL)
     // hide the loading screen (image & text)
     document.getElementById('loadingScreen').style = 'display:none';
     // put the table html onto the website
-    document.getElementById('table-mailmerge').innerHTML = mailMergeTable;
+    document.getElementById('table-mailMerge').innerHTML = mailMergeTable;
   });
 });
