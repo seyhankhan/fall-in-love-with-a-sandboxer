@@ -68,7 +68,7 @@ document.getElementById("button-mailMerge").onclick = () => {
   document.getElementById('button-pairsIDs').className = '';
 };
 
-document.getElementById("button-pairs").onclick = () => {
+document.getElementById("button-pairsIDs").onclick = () => {
   document.getElementById('table-mailMerge').style.display = 'none';
   document.getElementById('table-pairsIDs').style.display = 'block';
   document.getElementById('button-mailMerge').className = '';
@@ -268,6 +268,7 @@ fetch(PARTICIPANTS_SPREADSHEET_URL)
     for (i = 0; i < shuffledIDs.length; i += 2) {
       s1 = Sandboxers[shuffledIDs[i]];
       s2 = Sandboxers[shuffledIDs[i+1]];
+
       // Emails  Name 1  Location 1  Number 1  Scheduling Link 1 Name 2  Location 2  Number 2  Scheduling Link 2
       mailMergeTable += `
         <tr>
@@ -275,11 +276,11 @@ fetch(PARTICIPANTS_SPREADSHEET_URL)
             s1[COLUMN['Email']] + ", " + s2[COLUMN['Email']],
             s1[COLUMN['Name']],
             s1[COLUMN['Location']],
-            s1[COLUMN['Number']],
+            "'" + s1[COLUMN['Number']],
             s1[COLUMN['Link']],
             s2[COLUMN['Name']],
             s2[COLUMN['Location']],
-            s2[COLUMN['Number']],
+            "'" + s2[COLUMN['Number']],
             s2[COLUMN['Link']]
           ].join("</td><td>") + `</td>
         </tr>`
@@ -305,6 +306,7 @@ fetch(PARTICIPANTS_SPREADSHEET_URL)
           <td>` + pairIDsTable.join("</td></tr><tr><td>") + `</td>
         </tr>
       </tbody>`;
+    document.getElementById('table-pairsIDs').style = 'display:none';
 
 
 /* ---------------------------- HIDE/DISPLAY HTML --------------------------- */
